@@ -2,12 +2,21 @@
   "name": "smart-contract",
   "version": "1.0.0",
   "description": "Smart-contract",
+  "main": "index.js",
   "scripts": {
-    "solc:01": "solc --bin --abi --optimize --overwrite -o  ./output ./ballon_01.sol"
+    "solc:01": "solc --bin --abi --optimize --overwrite -o  ./output contracts/test_01.sol",
+    "solc:auth": "solc --bin --abi --optimize --overwrite -o  ./output contracts/auth-user.sol"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlbertoBarrago/smart-contract.git"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "ganache": "^7.9.2",
+    "mocha": "^10.6.0",
+    "solc": "^0.8.26",
+    "web3": "^4.11.0"
   },
   "author": "alBz",
   "license": "ISC",
