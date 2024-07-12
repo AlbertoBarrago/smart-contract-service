@@ -4,7 +4,6 @@
   "description": "Smart-contract",
   "main": "index.js",
   "scripts": {
-    "solc:01": "solc --bin --abi --optimize --overwrite -o  ./output contracts/test_01.sol",
     "solc:auth": "solc --bin --abi --optimize --overwrite -o  ./output contracts/auth-user.sol"
   },
   "repository": {
