@@ -1,7 +1,7 @@
 # smart-contract
-A little set of smart-contract for get in deep in this chain world.
+A little set of smart-contract for get in deep in this block-chain world.
 
-- 01 - SetMessage, message 
+- AuthContract: register user, authenticate, getPublicKey  
 ## Installing steps 
 
 Install the dependencies
@@ -14,5 +14,5 @@ For compiling the smart-contract use, this command
 produce ABI and BIN files in the build folder `/output`
 
 ``` bash
-npm run solc:01
+npm run solc:auth
 ```
