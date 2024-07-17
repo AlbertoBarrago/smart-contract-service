@@ -15,12 +15,8 @@ Install the dependencies
 npm install
 ```
 
-For compiling the smart-contract use, this command
-produce ABI and BIN files in the build folder `/output`
-
 ``` bash
 npm run deploy
-npm run compile 
 ```
 
 ## INFO
