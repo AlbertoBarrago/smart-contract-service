@@ -7,6 +7,7 @@ A little set of smart-contract for get in deep in this chain world.
 Add your mnemonic and infura url in `.env` file
 - `MNEMONIC="bla bla bla... "`    
 - `INFURA_URL=https://sepolia.infura.io/v3/<YOUR_INFURA_KEY>`
+- `INFURA_API_KEY=<YOUR_API_KEY>`
 
 Install the dependencies
 ``` bash 
