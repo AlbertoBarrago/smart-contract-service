@@ -24,9 +24,9 @@ npm run compile
 ```
 
 ## INFO
-The smart-contract is deployed to the Rinkeby testnet.
+The smart-contract is deployed to the [Infura](https://app.infura.io/) testnet.
 But you can use Remix to deploy it to the mainnet.
 
-Notes: [Remix](https://remix.ethereum.org/)
+Remix Studio: [Remix](https://remix.ethereum.org/)
 
-First contract deployed is here: [AuthContract](https://rinkeby.etherscan.io/address/0xD0b8716B1610ecBb979cC5BE975f68d95121c2EE)
+Address on sepolia: 0xD0b8716B1610ecBb979cC5BE975f68d95121c2EE
