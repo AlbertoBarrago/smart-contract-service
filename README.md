@@ -1,8 +1,9 @@
 # smart-contract
-A little set of smart-contract for get in deep in this block-chain world.
-
+A little set of smart-contract for get in deep in this blockchain world.
 
 - AuthContract: register user, authenticate, getPublicKey  
+
+
 ## Installing steps 
 
 Add your mnemonic and infura url in `.env` file
