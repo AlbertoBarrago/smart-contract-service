@@ -25,8 +25,7 @@ npm run compile
 
 ## INFO
 The smart-contract is deployed to the [Infura](https://app.infura.io/) testnet.
-But you can use Remix to deploy it to the mainnet.
+But you can use [Remix](https://remix.ethereum.org/) to deploy it to the mainnet.
 
-Remix Studio: [Remix](https://remix.ethereum.org/)
 
-Address on sepolia: 0xD0b8716B1610ecBb979cC5BE975f68d95121c2EE
+Address of first deployed Auth Contract: 0xD0b8716B1610ecBb979cC5BE975f68d95121c2EE
