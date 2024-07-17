@@ -9,7 +9,6 @@ A little set of smart-contract for get in deep in this blockchain world.
 Add your mnemonic and infura url in `.env` file
 - `MNEMONIC="bla bla bla... "`    
 - `INFURA_URL=https://sepolia.infura.io/v3/<YOUR_INFURA_KEY>`
-- `INFURA_API_KEY=<YOUR_API_KEY>`
 
 Install the dependencies
 ``` bash 
@@ -25,7 +24,9 @@ npm run compile
 ```
 
 ## INFO
-The smart-contract is deployed to the Rinkeby testnet.
+The smart-contract is deployed to the [Infura](https://app.infura.io/) testnet.
 But you can use Remix to deploy it to the mainnet.
 
-Notes: [Remix](https://remix.ethereum.org/)
+Remix Studio: [Remix](https://remix.ethereum.org/)
+
+Address on sepolia: 0xD0b8716B1610ecBb979cC5BE975f68d95121c2EE
