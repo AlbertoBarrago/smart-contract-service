@@ -28,4 +28,11 @@ The smart-contract is deployed to the [Infura](https://app.infura.io/) testnet.
 But you can use [Remix](https://remix.ethereum.org/) to deploy it to the mainnet.
 
 
-Address of first deployed Auth Contract: 0xD0b8716B1610ecBb979cC5BE975f68d95121c2EE
+When you deploy the smart-contract, you will get the address of the contract.
+
+``` text 
+Attempting to deploy from account 0xH9D3c8c8BE6a0a292ae4B448f614C....
+Deploying contract...
+Contract deployed to 0xD0b8716B1610ecBb979cC5BE975f68d9xxxx2EE
+Deployment successful. Contract address: 0xD0b8716B1610ecBb979cC5BE975f68dxxxx2EE
+```
