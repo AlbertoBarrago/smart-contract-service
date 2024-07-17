@@ -4,7 +4,8 @@
   "description": "Smart-contract",
   "main": "index.js",
   "scripts": {
-    "solc:auth": "solc --metadata --abi --bin --optimize --overwrite -o ./output contracts/auth-user.sol",
+    "solc:auth": "solc --metadata --abi --bin --optimize --overwrite -o ./output contracts/Authentication.sol",
+    "deploy": "node deploy.js",
     "test": "mocha"
   },
   "repository": {
@@ -13,9 +14,10 @@
   },
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.15",
+    "dotenv": "^16.4.5",
     "ganache": "^7.9.2",
     "mocha": "^10.4.0",
-    "solc": "^0.4.17",
+    "solc": "^0.8.19",
     "web3": "^4.11.0"
   },
   "author": "alBz",

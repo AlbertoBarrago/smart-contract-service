@@ -1,17 +1,8 @@
-const fs = require('fs');
-const path = require('path');
 const assert = require('assert');
 const ganache = require('ganache');
 const { Web3 } = require('web3');
 const web3 = new Web3(ganache.provider());
-
-// Define paths to ABI and bytecode files
-const abiPath = path.resolve(__dirname, '..', 'output', 'Authentication.abi');
-const binPath = path.resolve(__dirname, '..', 'output', 'Authentication.bin');
-
-// Read ABI and bytecode files
-const abi = JSON.parse(fs.readFileSync(abiPath, 'utf8'));
-const bytecode = fs.readFileSync(binPath, 'utf8');
+const { abi , evm } = require('../compile');
 
 let accounts;
 let authContract;
@@ -20,8 +11,8 @@ beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
 
   authContract = await new web3.eth.Contract(abi)
-      .deploy({ data: `0x${bytecode}`, arguments: [] })
-      .send({ from: accounts[0], gas: '3000000' }); // Increased gas limit
+      .deploy({ data: String(evm.bytecode.object), arguments: [] })
+      .send({ from: accounts[0], gas: '3000000' });
 });
 
 describe('Authentication', () => {

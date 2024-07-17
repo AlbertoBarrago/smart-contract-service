@@ -57,6 +57,9 @@
 # IDE files
 .idea
 
+# env
+.env
+
 # Node modules and package-lock.json
 node_modules
 package-lock.json
