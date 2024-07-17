@@ -27,6 +27,8 @@ But you can use [Remix](https://remix.ethereum.org/) to deploy it to the mainnet
 When you deploy the smart-contract, you will get the address of the contract.
 
 You have to install MetaMask and connect it to the testnet.
+And after you lunch `npm run deploy` you will get the address of the contract.
+The result on the terminal will be like this:
 
 ``` text 
 Attempting to deploy from account 0xH9D3c8c8BE6a0a292ae4B448f614C....
