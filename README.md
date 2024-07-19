@@ -2,6 +2,7 @@
 A little set of smart-contract for get in deep in this blockchain world.
 
 - AuthContract: register user, authenticate, getPublicKey  
+- LotteryContract: register user, buy lottery ticket, claim lottery ticket
 
 
 ## Installing steps 
