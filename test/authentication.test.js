@@ -19,7 +19,7 @@ describe('Authentication', () => {
   it('should register a new user', async () => {
     const username = 'testuser';
     try {
-      await authContract.methods.registerUser(username).send({ from: accounts[0], gas: '500000' }); // Increased gas limit
+      await authContract.methods.registerUser(username).send({ from: accounts[0], gas: '500000' });
       const publicKey = await authContract.methods.getPublicKey(username).call();
       assert.equal(publicKey, accounts[0]);
     } catch (error) {
@@ -30,7 +30,7 @@ describe('Authentication', () => {
   it('should get a user', async () => {
       const username = 'testuser';
       try {
-          await authContract.methods.authenticateUser(username).send({from: accounts[0], gas: '500000'}); // Increased gas limit
+          await authContract.methods.authenticateUser(username).send({from: accounts[0], gas: '500000'});
           const publicKey = await authContract.methods.getPublicKey(username).call();
           assert.equal(publicKey, accounts[0]);
       } catch (error) {
