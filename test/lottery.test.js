@@ -60,4 +60,17 @@ describe('Lottery', () => {
         assert.equal(players[2], accounts[2]);
     });
 
+
+    it('should not register a player with less than 0.02 ether', async () => {
+        try {
+            await lotteryContract.methods.enter().send({
+                from: accounts[0],
+                value: web3.utils.toWei('0.01', 'ether'),
+            });
+            assert(false);
+        } catch (error) {
+            assert(error);
+        }
+    });
+
 });

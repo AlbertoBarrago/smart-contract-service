@@ -18,7 +18,7 @@ contract Lottery {
         return uint256(keccak256(abi.encodePacked(block.prevrandao, block.timestamp, players)));
     }
 
-    function pickWinner() public {
+    function pickWinner() public requireManager {
         require(msg.sender == manager, "Only manager can pick winner");
         uint256 randomIndex = random() % players.length;
         address payable winner = payable(players[randomIndex]);
@@ -28,5 +28,10 @@ contract Lottery {
 
     function getPlayers() public view returns (address[] memory) {
         return players;
+    }
+
+    modifier requireManager() {
+        require(msg.sender == manager, "Only manager can call this function");
+        _;
     }
 }
