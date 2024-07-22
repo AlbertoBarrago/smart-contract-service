@@ -37,3 +37,5 @@ Deploying contract...
 Contract deployed to 0xD0b8716B1610ecBb979cC5BE975f68d9xxxx2EE
 Deployment successful. Contract address: 0xD0b8716B1610ecBb979cC5BE975f68dxxxx2EE
 ```
+## Gift me a ⭐️
+if you like this project, please give me a star.
