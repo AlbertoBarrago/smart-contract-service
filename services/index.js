@@ -12,8 +12,14 @@ const provider = new HDWalletProvider(
     process.env.INFURA_URL
 );
 const web3 = new Web3(provider);
-// Deploy the contract
-const deploy = async (contractAddress) => {
+
+/**
+ * Deploy the contract
+ * @param contractAddress
+ * @param arguments
+ * @returns {Promise<string>}
+ */
+const deploy = async (contractAddress, arguments) => {
     try {
         const accounts = await web3.eth.getAccounts();
         console.log('Attempting to auth from account', accounts[0]);
@@ -24,7 +30,12 @@ const deploy = async (contractAddress) => {
         const adjustedGasPrice = BigInt(gasPrice.toString()) * BigInt(120) / BigInt(100);
 
         const contract = new web3.eth.Contract(contractAddress.abi);
-        const deployTransaction = contract.deploy({data: contractAddress.bytecode, arguments: []});
+        let deployTransaction;
+        if(arguments) {
+             deployTransaction = contract.deploy({data: contractAddress.bytecode, arguments: arguments});
+        } else {
+             deployTransaction = contract.deploy({data: contractAddress.bytecode});
+        }
 
         const gasLimit = await deployTransaction.estimateGas({from: accounts[0]});
 

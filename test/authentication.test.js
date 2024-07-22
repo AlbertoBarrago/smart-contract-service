@@ -11,7 +11,7 @@ beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
 
   authContract = await new web3.eth.Contract(abi)
-      .deploy({ data: String(evm.bytecode.object), arguments: [] })
+      .deploy({ data: evm.bytecode.object })
       .send({ from: accounts[0], gas: '3000000' });
 });
 
@@ -20,14 +20,14 @@ describe('Authentication', () => {
     const username = 'testuser';
     try {
       await authContract.methods.registerUser(username).send({ from: accounts[0], gas: '500000' });
-      const publicKey = await authContract.methods.getPublicKey(username).call();
-      assert.equal(publicKey, accounts[0]);
+      const username = await authContract.methods.getUser(accounts[0]).call();
+      assert.equal(username, 'testuser');
     } catch (error) {
       console.error("Transaction failed:", error);
     }
   });
 
-  it('should get a user', async () => {
+  it('should authenticate user', async () => {
       const username = 'testuser';
       try {
           await authContract.methods.authenticateUser(username).send({from: accounts[0], gas: '500000'});

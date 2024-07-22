@@ -25,4 +25,8 @@ contract Lottery {
         winner.transfer(address(this).balance);
         players = new address[](0);
     }
+
+    function getPlayers() public view returns (address[] memory) {
+        return players;
+    }
 }
