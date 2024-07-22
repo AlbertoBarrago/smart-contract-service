@@ -36,4 +36,41 @@ describe('Lottery', () => {
         assert.equal(players[0], accounts[0]);
     });
 
+    it('should register a group of players', async () => {
+
+        await lotteryContract.methods.enter().send({
+            from: accounts[0],
+            value: web3.utils.toWei('0.02', 'ether'),
+        });
+        await lotteryContract.methods.enter().send({
+            from: accounts[1],
+            value: web3.utils.toWei('0.02', 'ether'),
+        });
+        await lotteryContract.methods.enter().send({
+            from: accounts[2],
+            value: web3.utils.toWei('0.02', 'ether'),
+        });
+        const players = await lotteryContract.methods.getPlayers().call({
+            from: accounts[0],
+        });
+
+        assert.equal(players.length, 3);
+        assert.equal(players[0], accounts[0]);
+        assert.equal(players[1], accounts[1]);
+        assert.equal(players[2], accounts[2]);
+    });
+
+
+    it('should not register a player with less than 0.02 ether', async () => {
+        try {
+            await lotteryContract.methods.enter().send({
+                from: accounts[0],
+                value: web3.utils.toWei('0.01', 'ether'),
+            });
+            assert(false);
+        } catch (error) {
+            assert(error);
+        }
+    });
+
 });
