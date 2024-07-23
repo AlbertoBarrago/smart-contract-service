@@ -24,17 +24,17 @@ const deploy = async (contractAddress, arguments) => {
         const accounts = await web3.eth.getAccounts();
         console.log('Attempting to auth from account', accounts[0]);
 
-        // Get the current nonce and gas price
+        // Get the current nonce and gas price and retrive pending transactions
         const nonce = await web3.eth.getTransactionCount(accounts[0], 'pending');
         const gasPrice = await web3.eth.getGasPrice();
         const adjustedGasPrice = BigInt(gasPrice.toString()) * BigInt(120) / BigInt(100);
 
         const contract = new web3.eth.Contract(contractAddress.abi);
-        let deployTransaction;
+        let deployTransaction = contract.deploy({data: contractAddress.bytecode});
+
+        // Assign arguments if provided
         if(arguments) {
              deployTransaction = contract.deploy({data: contractAddress.bytecode, arguments: arguments});
-        } else {
-             deployTransaction = contract.deploy({data: contractAddress.bytecode});
         }
 
         const gasLimit = await deployTransaction.estimateGas({from: accounts[0]});
