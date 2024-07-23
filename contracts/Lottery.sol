@@ -5,8 +5,11 @@ contract Lottery {
     address public manager;
     address[] public players;
 
+    event ManagerSet(address indexed oldOwner, address indexed newOwner);
+
     constructor() {
         manager = msg.sender;
+        emit ManagerSet(manager, msg.sender);
     }
 
     function enter() public payable  {
