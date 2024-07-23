@@ -8,6 +8,7 @@ const contractData = {
 }
 
 deploy(contractData).then((address) => {
+    console.log('Deployment successful. Contract abi:', abi);
     console.log('Deployment successful. Contract address:', address);
     process.exit(0);
 }).catch((err) => {
