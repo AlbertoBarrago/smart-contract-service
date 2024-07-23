@@ -17,7 +17,7 @@ npm install
 ```
 
 ``` bash
-npm run auth
+npm run deploy:auth || npm run deploy:lottery
 ```
 
 ## INFO
