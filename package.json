@@ -4,7 +4,7 @@
   "description": "Smart-contract",
   "main": "index.js",
   "scripts": {
-    "deploy": "node deploys/index.js",
+    "deploy": "node services/index.js",
     "test": "mocha"
   },
   "repository": {
