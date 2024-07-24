@@ -1,7 +1,7 @@
 require('dotenv').config();
 const path = require('path');
-const readlineSync = require('readline-sync'); // Add readline-sync for user input
-const ContractCompiler = require('../utils/compile'); // Adjust the path if necessary
+const readlineSync = require('readline-sync');
+const ContractCompiler = require('../utils/compile');
 const {deploy} = require("../utils/deploy");
 
 // Prompt for the contract name
@@ -19,6 +19,10 @@ const contractData = {
     abi,
     bytecode: bytecode
 }
+/**
+ * Deploy Smart Contract
+ * @param {contractData} - Contract to deploy
+ */
 deploy(contractData).then((address) => {
     console.log('Abi code:', abi)
     console.log('Deployment successful. Contract address:', address);
