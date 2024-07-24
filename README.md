@@ -1,13 +1,26 @@
-# smart-contract
-A little set of smart-contract for get in deep in this blockchain world.
+# Smart Contract Service
+Dive deep into the blockchain world with our clever set of smart contracts.
+Whether you're deploying 'UnicornPizza' or 'RocketBanana,'
+our platform makes it fun and easy to bring your unique ideas to life.
+Get ready to explore, create, and enjoy the limitless possibilities of blockchain technology!
 
-- AuthContract: register user, authenticate, getPublicKey  
-- LotteryContract: register user, buy lottery ticket, claim lottery ticket
+![img.png](img.png) 
+
+### Test Contracts present in the `contracts` folder
+- **AuthContract**: register user, authenticate, getPublicKey
+- **LotteryContract**: register user, buy lottery ticket, claim lottery ticket
 
 
-## Installing steps 
+## INFO
+The smart contracts are deployed to the [Infura](https://app.infura.io/) testnet. But you can also use [Remix](https://remix.ethereum.org/).
 
-Add your mnemonic and infura url in `.env` file
+#### Prerequisites
+You need to install **MetaMask** and connect it to the testnet for deploying the contracts.
+
+## Installation Steps
+Add your mnemonic and infura url in `.env` file, just rename the file `.env_sample` and fill it.
+
+Example:
 - `MNEMONIC="bla bla bla... "`    
 - `INFURA_URL=https://sepolia.infura.io/v3/<YOUR_INFURA_KEY>`
 
@@ -17,18 +30,18 @@ npm install
 ```
 
 ``` bash
-npm run deploy:auth || npm run deploy:lottery
+npm run deploy
 ```
 
-## INFO
-The smart-contract is deployed to the [Infura](https://app.infura.io/) testnet.
-But you can use [Remix](https://remix.ethereum.org/) to auth it to the mainnet.
+Then add the name of target smart-contract, in this repo inside folder `contracts` there are: 
+ - Authentication.sol
+ - Lottery.sol
 
+What appears on consolle:  
+```text
+Enter the contract name (without .sol extension): Lottery
+```
 
-When you auth the smart-contract, you will get the address of the contract.
-
-You have to install MetaMask and connect it to the testnet.
-And after you lunch `npm run auth` you will get the address of the contract.
 The result on the terminal will be like this:
 
 ``` text 
