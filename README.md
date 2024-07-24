@@ -45,10 +45,54 @@ Enter the contract name (without .sol extension): Lottery
 The result on the terminal will be like this:
 
 ``` text 
-Attempting to auth from account 0xH9D3c8c8BE6a0a292ae4B448f614C....
+Attempting to auth from account 0xA9D3cxxxxxxx14C5Ac96f211F2
 Deploying contract...
-Contract deployed to 0xD0b8716B1610ecBb979cC5BE975f68d9xxxx2EE
-Deployment successful. Contract address: 0xD0b8716B1610ecBb979cC5BE975f68dxxxx2EE
+abi [
+  { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
+  {
+    anonymous: false,
+    inputs: [ [Object], [Object] ],
+    name: 'ManagerSet',
+    type: 'event'
+  },
+  {
+    inputs: [],
+    name: 'enter',
+    outputs: [],
+    stateMutability: 'payable',
+    type: 'function'
+  },
+  {
+    inputs: [],
+    name: 'getPlayers',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [],
+    name: 'manager',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [],
+    name: 'pickWinner',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'players',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function'
+  }
+]
+Deployment successful. Contract address: 0x8Bxxxxxxxx71859dCE01
+
 ```
 ## Gift me a ⭐️
 if you like this project, please give me a star.
