@@ -33,13 +33,17 @@ npm install
 npm run deploy
 ```
 
-Then add the name of target smart-contract, in this repo inside folder `contracts` there are: 
+After you write you smart-contract can deploy passing the name of it without `.sol` extensione.
+
+In this repo, inside folder `contracts` there are: 
  - Authentication.sol
  - Lottery.sol
 
-What appears on consolle:  
+You can use it for testing the service. 
+
+What appears on consolle after lunch command:  
 ```text
-Enter the contract name (without .sol extension): Lottery
+Enter the contract name (**without .sol extension**): <CONTRACT_NAME>
 ```
 
 The result on the terminal will be like this:
