@@ -47,8 +47,6 @@ const deploy = async (contractAddress, arguments) => {
             nonce: nonce
         });
 
-        console.log('abi', contractAddress.abi);
-        console.log('Contract deployed to', deployReceipt.options.address);
         return deployReceipt.options.address;
     } catch (error) {
         console.error('Deployment failed:', error);

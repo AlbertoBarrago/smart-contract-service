@@ -4,8 +4,7 @@
   "description": "Smart-contract",
   "main": "index.js",
   "scripts": {
-    "deploy:auth": "node deploys/auth.js",
-    "deploy:lottery": "node deploys/lottery.js",
+    "deploy": "node deploys/index.js",
     "test": "mocha"
   },
   "repository": {
@@ -17,6 +16,7 @@
     "dotenv": "^16.4.5",
     "ganache": "^7.9.2",
     "mocha": "^10.4.0",
+    "readline-sync": "^1.4.10",
     "solc": "^0.8.19",
     "web3": "^4.11.0"
   },
