@@ -1,8 +1,8 @@
 require('dotenv').config();
 const path = require('path');
 const readlineSync = require('readline-sync'); // Add readline-sync for user input
-const ContractCompiler = require('../services/compile'); // Adjust the path if necessary
-const {deploy} = require("../services/deploy");
+const ContractCompiler = require('../utils/compile'); // Adjust the path if necessary
+const {deploy} = require("../utils/deploy");
 
 // Prompt for the contract name
 const contractName = readlineSync.question('Enter the contract name (without .sol extension): ');
