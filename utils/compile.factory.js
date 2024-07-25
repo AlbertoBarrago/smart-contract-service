@@ -3,6 +3,10 @@ const fse = require('fs-extra');
 const solc = require('solc');
 const readlineSync = require("readline-sync");
 
+/**
+ * CompileContract with Factory
+ * @param compileName
+ */
 const compileContract = (compileName) =>{
     const buildPath = path.resolve(__dirname, '../builds');
     fse.removeSync(buildPath);
