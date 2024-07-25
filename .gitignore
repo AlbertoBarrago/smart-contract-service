@@ -65,4 +65,4 @@ node_modules
 package-lock.json
 
 # Builds
-./builds
+builds
