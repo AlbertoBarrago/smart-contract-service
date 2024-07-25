@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "deploy": "node services/index.js",
+    "deploy:locally": "node utils/compile.factory.js",
     "test": "mocha"
   },
   "repository": {
@@ -14,6 +15,7 @@
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.15",
     "dotenv": "^16.4.5",
+    "fs-extra": "^11.2.0",
     "ganache": "^7.9.2",
     "mocha": "^10.4.0",
     "readline-sync": "^1.4.10",
