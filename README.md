@@ -6,21 +6,6 @@ Explore, create, and utilize the vast potential of blockchain technology with ea
 
 ![img.png](img.png)
 
-_Contracts present in the `contracts` folder below:_
-
-- **AuthContract**: register user, authenticate, getPublicKey
-- **LotteryContract**: register user, buy lottery ticket, claim lottery ticket
-- **Campaign**: for every kind of campaign like kickstarter
-
-## INFO
-
-The smart contracts are deployed to the [Infura](https://app.infura.io/) testnet. But you can also
-use [Remix](https://remix.ethereum.org/).
-
-#### Prerequisites
-
-You need to install **MetaMask** and connect it to the testnet for deploying the contracts.
-
 ## Installation Steps
 
 Add your mnemonic and infura url in `.env` file, just rename the file `.env_sample` and fill it.
@@ -40,7 +25,27 @@ npm install
 npm run deploy
 ```
 
-After you write you smart-contract can deploy passing the name of it without `.sol` extensione.
+_Contracts present in the folder `contracts`:_
+
+- **AuthContract**: register user, authenticate, getPublicKey
+- **LotteryContract**: register user, buy lottery ticket, claim lottery ticket
+
+
+- **Campaign**: for every kind of campaign like kickstarter, this contract includes a **Factory functions**
+
+  - New Contract with factory for this contract you can use `npm run deploy:local`
+  to build inside _builds_ folder two different files (The smart-contract, and the factory in `.json`). 
+
+## INFO
+
+The smart contracts are deployed to the [Infura](https://app.infura.io/) testnet. But you can also
+use [Remix](https://remix.ethereum.org/).
+
+#### Prerequisites
+
+You need to install **MetaMask** and connect it to the testnet for deploying the contracts.
+
+## Instruction
 
 In this repo, inside folder `contracts` there are:
 
@@ -49,7 +54,7 @@ In this repo, inside folder `contracts` there are:
 
 You can use it for testing the service.
 
-What appears on consolle after lunch command:
+What appears on consolle after lunch command `npm run deploy`:
 
 ```text
 Enter the contract name (**without .sol extension**): <CONTRACT_NAME>
