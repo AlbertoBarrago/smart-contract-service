@@ -6,10 +6,11 @@ Explore, create, and utilize the vast potential of blockchain technology with ea
 
 ![img.png](img.png)
 
-### Test Contracts present in the `contracts` folder
+_Contracts present in the `contracts` folder below:_
 
 - **AuthContract**: register user, authenticate, getPublicKey
 - **LotteryContract**: register user, buy lottery ticket, claim lottery ticket
+- **Campaign**: for every kind of campaign like kickstarter
 
 ## INFO
 
