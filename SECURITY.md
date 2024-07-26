@@ -2,7 +2,7 @@
 
 ## Vulnerability Disclosure
 
-If you've discovered a vulnerability in our project, please report it to us at [albertobarrago@gmail.com].
+If you've discovered a vulnerability in our project, please report it to me at _albertobarrago@gmail.com_.
 
 We take security very seriously and appreciate any contributions that help us improve the security of our code.
 

@@ -22,12 +22,12 @@ npm install
 ```
 Compile smart-contract locally inside `builds` folder
 
-```bash
+``` bash
 npm run compile
 ```
 
 Run test with _Mocha_
-```bash 
+``` bash 
 npm run test
 ```
 
