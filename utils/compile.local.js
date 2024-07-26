@@ -69,5 +69,3 @@ if (!contractName) {
 } else {
     compileContract(contractName)
 }
-
-
