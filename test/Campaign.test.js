@@ -15,12 +15,12 @@ beforeEach(async () => {
 
     factory = await new web3.eth.Contract(CampaignFactory.abi)
         .deploy({data: CampaignFactory.evm.bytecode.object})
-        .send({from: accounts[0], gas: '10000000'});
+        .send({from: accounts[0], gas: '3000000'});
 
     // 100 wei
     await factory.methods.createCampaign('100').send({
             from: accounts[0],
-            gas: '10000000'
+            gas: '3000000'
         }
     );
 
@@ -57,12 +57,44 @@ describe('Campaign', () => {
     })
 
     xit('allows a manager to make a payment request', async () => {
-        await campaign.methods.createRequest('Buy supplies', '200', accounts[1])
-            .send({
-                from: accounts[0],
-                gas: '1000000'
-            });
-        const request = await campaign.methods.requests(0).call();
+        // CallError: VM Exception while processing transaction: invalid opcode
+        await campaign.methods.createRequest('Buy supplies', '100', accounts[1]).send({
+            from: accounts[0],
+            gas: '3000000'
+        });
+        console.log(request)
         assert.equal('Buy supplies', request.description);
+        assert.equal('100', request.value);
+        assert.equal(accounts[1], request.recipient);
+        assert.equal(false, request.complete);
+        assert.equal(0, request.approvalCount);
     });
+
+    it("processes requests", async () => {
+        await campaign.methods.contribute().send({
+            from: accounts[0],
+            value: web3.utils.toWei("10", "ether"),
+        });
+
+        await campaign.methods
+            .createRequest("A", web3.utils.toWei("5", "ether"), accounts[1])
+            .send({ from: accounts[0], gas: "3000000" });
+
+        await campaign.methods.approveRequest(0).send({
+            from: accounts[0],
+            gas: "3000000",
+        });
+
+        await campaign.methods.finalizeRequest(0).send({
+            from: accounts[0],
+            gas: "3000000",
+        });
+
+        let balance = await web3.eth.getBalance(accounts[1]);
+        balance = web3.utils.fromWei(balance, "ether");
+        balance = parseFloat(balance);
+        console.log(balance);
+        assert(balance > 104);
+    });
+
 })
