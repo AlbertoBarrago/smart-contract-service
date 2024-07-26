@@ -1,6 +1,6 @@
 const assert = require('assert');
 const ganache = require('ganache');
-const { Web3 } = require('web3');
+const {Web3} = require('web3');
 const web3 = new Web3(ganache.provider());
 const Campaign = require('../builds/Campaign.json');
 const CampaignFactory = require('../builds/CampaignFactory.json');
@@ -15,7 +15,7 @@ beforeEach(async () => {
 
     factory = await new web3.eth.Contract(CampaignFactory.abi)
         .deploy({data: CampaignFactory.evm.bytecode.object})
-        .send({ from: accounts[0], gas: '10000000' });
+        .send({from: accounts[0], gas: '10000000'});
 
     // 100 wei
     await factory.methods.createCampaign('100').send({
@@ -30,12 +30,11 @@ beforeEach(async () => {
     console.log(campaign.address)
 })
 
-describe('Campaign',()=> {
+describe('Campaign', () => {
     it('Should deploy factory and campaign', async () => {
         assert.ok(factory.options.address)
         assert.ok(campaign.options.address)
     })
-
 
     it('Should user can contribute', async () => {
         await campaign.methods.contribute('100').send({
@@ -56,4 +55,14 @@ describe('Campaign',()=> {
             assert(error)
         }
     })
+
+    xit('allows a manager to make a payment request', async () => {
+        await campaign.methods.createRequest('Buy supplies', '200', accounts[1])
+            .send({
+                from: accounts[0],
+                gas: '1000000'
+            });
+        const request = await campaign.methods.requests(0).call();
+        assert.equal('Buy supplies', request.description);
+    });
 })
