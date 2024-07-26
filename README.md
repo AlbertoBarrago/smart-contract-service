@@ -55,9 +55,17 @@ In this repo, inside folder `contracts` there are:
 You can use it for testing the service.
 
 What appears on consolle after lunch command `npm run deploy`:
-
 ```text
 Enter the contract name (**without .sol extension**): <CONTRACT_NAME>
+```
+Or go forward without give a Contract-name and the script compiles all contracts.
+Like this 
+```text 
+Enter the contract name (without .sol extension): 
+Compiling all contracts...
+Contracts Authentication compiled and output to /Users/albz/WebstormProjects/smart-contract/builds
+Contracts Campaign compiled and output to /Users/albz/WebstormProjects/smart-contract/builds
+Contracts Lottery compiled and output to /Users/albz/WebstormProjects/smart-contract/builds
 ```
 
 The result on the terminal will be like this:

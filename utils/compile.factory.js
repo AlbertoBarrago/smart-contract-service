@@ -2,19 +2,24 @@ const path = require('path');
 const fse = require('fs-extra');
 const solc = require('solc');
 const readlineSync = require("readline-sync");
+const fs = require("node:fs");
 
-const compileContract = (compileName) =>{
-    const buildPath = path.resolve(__dirname, '../builds');
-    fse.removeSync(buildPath);
 
-    const campaignPath = path.resolve(__dirname, '..', 'contracts', `${compileName}.sol`);
+/**
+ * CompileContract with Factory
+ * @param compileName
+ */
+const compileContract = (compileName) => {
+    const campaignPath = path.resolve(__dirname, '..', 'contracts', `${compileName.toString()}.sol`);
     const source = fse.readFileSync(campaignPath, 'utf8');
-    console.log('Source code:', source);
+    const buildPath = path.resolve(__dirname, '../builds');
+    //fse.removeSync(buildPath);
+
 
     const input = {
         language: 'Solidity',
         sources: {
-            [`${contractName}.sol`]: {
+            [`${compileName}.sol`]: {
                 content: source,
             }
         },
@@ -35,21 +40,33 @@ const compileContract = (compileName) =>{
     for (let contract in output.contracts[`${compileName}.sol`]) {
         fse.outputJsonSync(
             path.resolve(buildPath, contract + '.json'),
-            output.contracts[`${contractName}.sol`][contract]
+            output.contracts[`${compileName}.sol`][contract]
         );
     }
 
-    console.log('Contracts compiled and output to', buildPath);
+    console.log(`Contracts ${compileName} compiled and output to`, buildPath);
+}
+
+const getAllContracts = () => {
+    const contractPath = path.resolve(__dirname, '..', 'contracts');
+    const contractList = fs.readdirSync(contractPath);
+    return contractList.map((item) => item.replace('.sol', ''));
 }
 
 // Get the contract name from command line arguments
 const contractName = readlineSync.question('Enter the contract name (without .sol extension): ');
 
 if (!contractName) {
-    console.error('Please provide a contract name as an argument');
-    process.exit(1);
+    console.info('Compiling all contracts...');
+    const contractName = getAllContracts();
+    let contractLength = contractName.length;
+    let index = 0;
+    do {
+        compileContract(contractName[index]);
+        index++;
+    } while (index < contractLength);
+} else {
+    compileContract(contractName)
 }
 
-(async () => {
-    await compileContract(contractName);
-})();
+

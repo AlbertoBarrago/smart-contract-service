@@ -2,7 +2,7 @@ const assert = require('assert');
 const ganache = require('ganache');
 const { Web3 } = require('web3');
 const web3 = new Web3(ganache.provider());
-const { abi , evm } = require('../compiles/lottery');
+const Lottery = require('../builds/Lottery.json');
 
 let accounts;
 let lotteryContract;
@@ -10,8 +10,8 @@ let lotteryContract;
 beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
 
-  lotteryContract = await new web3.eth.Contract(abi)
-      .deploy({ data: evm.bytecode.object})
+  lotteryContract = await new web3.eth.Contract(Lottery.abi)
+      .deploy({ data: Lottery.evm.bytecode.object})
       .send({ from: accounts[0], gas: '30000000' });
 });
 
