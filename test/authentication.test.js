@@ -2,7 +2,7 @@ const assert = require('assert');
 const ganache = require('ganache');
 const { Web3 } = require('web3');
 const web3 = new Web3(ganache.provider());
-const { abi , evm } = require('../compiles/auth');
+const Authentication = require('../builds/Authentication.json');
 
 let accounts;
 let authContract;
@@ -10,8 +10,8 @@ let authContract;
 beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
 
-  authContract = await new web3.eth.Contract(abi)
-      .deploy({ data: evm.bytecode.object })
+  authContract = await new web3.eth.Contract(Authentication.abi)
+      .deploy({ data: Authentication.evm.bytecode.object })
       .send({ from: accounts[0], gas: '3000000' });
 });
 

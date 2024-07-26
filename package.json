@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "deploy": "node services/index.js",
-    "deploy:locally": "node utils/compile.factory.js",
+    "deploy:local": "node utils/compile.factory.js",
     "test": "mocha"
   },
   "repository": {
