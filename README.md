@@ -20,7 +20,18 @@ Install the dependencies
 ``` bash 
 npm install
 ```
+Compile smart-contract locally inside `builds` folder
 
+```bash
+npm run compile
+```
+
+Run test with _Mocha_
+```bash 
+npm run test
+```
+
+Deploy on infura or on the provider you prefer
 ``` bash
 npm run deploy
 ```
@@ -29,12 +40,8 @@ _Contracts present in the folder `contracts`:_
 
 - **AuthContract**: register user, authenticate, getPublicKey
 - **LotteryContract**: register user, buy lottery ticket, claim lottery ticket
-
-
 - **Campaign**: for every kind of campaign like kickstarter, this contract includes a **Factory functions**
 
-  - New Contract with factory for this contract you can use `npm run deploy:local`
-  to build inside _builds_ folder two different files (The smart-contract, and the factory in `.json`). 
 
 ## INFO
 
@@ -51,21 +58,14 @@ In this repo, inside folder `contracts` there are:
 
 - Authentication.sol
 - Lottery.sol
+- Campaign.sol 
+  - CampaignFactory.sol
 
 You can use it for testing the service.
 
 What appears on consolle after lunch command `npm run deploy`:
 ```text
 Enter the contract name (**without .sol extension**): <CONTRACT_NAME>
-```
-Or go forward without give a Contract-name and the script compiles all contracts.
-Like this 
-```text 
-Enter the contract name (without .sol extension): 
-Compiling all contracts...
-Contracts Authentication compiled and output to /Users/albz/WebstormProjects/smart-contract/builds
-Contracts Campaign compiled and output to /Users/albz/WebstormProjects/smart-contract/builds
-Contracts Lottery compiled and output to /Users/albz/WebstormProjects/smart-contract/builds
 ```
 
 The result on the terminal will be like this:

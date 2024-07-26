@@ -4,10 +4,10 @@ const solc = require('solc');
 const readlineSync = require("readline-sync");
 const fs = require("node:fs");
 
-
 /**
- * CompileContract with Factory
+ * CompileContract
  * @param compileName
+ * @return json
  */
 const compileContract = (compileName) => {
     const campaignPath = path.resolve(__dirname, '..', 'contracts', `${compileName.toString()}.sol`);
@@ -47,6 +47,7 @@ const compileContract = (compileName) => {
     console.log(`Contracts ${compileName} compiled and output to`, buildPath);
 }
 
+// Get all contract present in folder
 const getAllContracts = () => {
     const contractPath = path.resolve(__dirname, '..', 'contracts');
     const contractList = fs.readdirSync(contractPath);
