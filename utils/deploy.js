@@ -36,7 +36,6 @@ const deploy = async (contractAddress, arguments) => {
         if(arguments) {
              deployTransaction = contract.deploy({data: contractAddress.bytecode, arguments: arguments});
         }
-
         const gasLimit = await deployTransaction.estimateGas({from: accounts[0]});
 
         console.log('Deploying contract...');
