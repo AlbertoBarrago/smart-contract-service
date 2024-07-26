@@ -35,4 +35,14 @@ describe('Campaign',()=> {
         assert.ok(factory.options.address)
         assert.ok(campaign.options.address)
     })
+
+
+    it('Should user can contribute', async () => {
+        await campaign.methods.contribute('100').send({
+            from: accounts[1],
+            value: '200'
+        })
+        const Contributor = await campaign.methods.approvers(accounts[1]).call()
+        assert(Contributor)
+    })
 })
